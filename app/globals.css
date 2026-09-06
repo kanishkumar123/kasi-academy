@@ -1,26 +1,139 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-navy: #123a63;
+  --color-navy-ink: #0b2440;
+  --color-marigold: #e98a24;
+  --color-marigold-deep: #c96f12;
+  --color-marigold-pale: #fbe3c2;
+  --color-ledger-green: #2f5d43;
+  --color-paper: #fffdf8;
+  --color-cream: #f7efdf;
+  --color-ink-muted: #4d5a70;
+  --color-rule: rgba(11, 36, 64, 0.09);
+  --color-rule-strong: rgba(11, 36, 64, 0.22);
+
+  --background: var(--color-cream);
+  --foreground: var(--color-navy-ink);
 }
 
 @theme inline {
+  --color-navy: var(--color-navy);
+  --color-navy-ink: var(--color-navy-ink);
+  --color-marigold: var(--color-marigold);
+  --color-marigold-deep: var(--color-marigold-deep);
+  --color-marigold-pale: var(--color-marigold-pale);
+  --color-ledger-green: var(--color-ledger-green);
+  --color-paper: var(--color-paper);
+  --color-cream: var(--color-cream);
+  --color-ink-muted: var(--color-ink-muted);
+  --color-rule: var(--color-rule);
+  --color-rule-strong: var(--color-rule-strong);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-display-src);
+  --font-hand: var(--font-hand-src);
+  --font-sans: var(--font-manrope);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: auto;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--color-marigold);
+  color: var(--color-navy-ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-marigold-deep);
+  outline-offset: 2px;
+}
+
+/* The site's one width rule: full-bleed bands vs. a wide (not narrow) reading
+   measure for content. Nothing here caps out at the cramped 1152px default. */
+.band {
+  width: 100%;
+  padding-inline: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .band {
+    padding-inline: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .band {
+    padding-inline: 4rem;
+  }
+}
+
+.band-inner {
+  max-width: 1520px;
+  margin-inline: auto;
+}
+
+/* Infinite subject marquee */
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee-scroll 34s linear infinite;
+}
+
+.marquee-track:hover,
+.marquee-track:focus-within {
+  animation-play-state: paused;
+}
+
+/* Ledger register rows */
+.ledger-row {
+  border-top: 1px solid var(--color-rule-strong);
+}
+
+.ledger-row:last-child {
+  border-bottom: 1px solid var(--color-rule-strong);
+}
+
+/* Rubber-stamp button: hard edge, offset shadow. It presses DOWN — hover sinks
+   it toward the shadow, click pushes it flat against the surface. */
+.stamp-btn {
+  box-shadow: 5px 5px 0 0 var(--color-navy-ink);
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.stamp-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 3px 3px 0 0 var(--color-navy-ink);
+}
+
+.stamp-btn:active {
+  transform: translate(5px, 5px);
+  box-shadow: 0 0 0 0 var(--color-navy-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
