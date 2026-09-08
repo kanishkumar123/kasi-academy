@@ -31,7 +31,7 @@ export default function Header() {
             </span>
             <span className="font-display text-lg font-medium leading-tight text-navy-ink">
               Kasi
-              <br className="hidden sm:block" /> Tuition Centre
+              <br className="hidden sm:block" /> Academy
             </span>
           </Link>
 

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Phone, MapPin } from "lucide-react";
+import { branches } from "@/data/branches";
 
 export default function Footer() {
   return (
@@ -11,7 +12,7 @@ export default function Footer() {
               <span className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-cream/30 font-display text-base font-semibold text-marigold">
                 K
               </span>
-              <span className="font-display text-lg font-medium">Kasi Tuition Centre</span>
+              <span className="font-display text-lg font-medium">Kasi Academy</span>
             </div>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/65">
               All subjects, Std 1 to 12 — plus Hindi, level-based Phonics, Commerce,
@@ -34,22 +35,29 @@ export default function Footer() {
             <p className="border-b border-cream/20 pb-2 text-sm font-semibold text-marigold">
               Visit us
             </p>
-            <ul className="mt-3 space-y-3 text-sm text-cream/80">
-              <li className="flex items-start gap-2">
-                <MapPin size={16} className="mt-0.5 shrink-0 text-marigold" />
-                Kamaraj Nagar, Choolaimedu, Chennai
-              </li>
-              <li className="flex items-center gap-2">
-                <Phone size={16} className="shrink-0 text-marigold" />
-                <a href="tel:6381190825" className="hover:text-marigold">6381190825</a>
-              </li>
+            <ul className="mt-3 space-y-4 text-sm text-cream/80">
+              {branches.map((b) => (
+                <li key={b.name} className="space-y-1.5">
+                  <p className="font-semibold text-cream/90">{b.name} branch</p>
+                  <p className="flex items-start gap-2">
+                    <MapPin size={16} className="mt-0.5 shrink-0 text-marigold" />
+                    {b.address}
+                  </p>
+                  <p className="flex items-center gap-2">
+                    <Phone size={16} className="shrink-0 text-marigold" />
+                    <a href={b.phoneHref} className="hover:text-marigold">
+                      {b.phone}
+                    </a>
+                  </p>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
       </div>
 
       <div className="border-t border-cream/15 py-5 text-center text-xs text-cream/45">
-        © {new Date().getFullYear()} Kasi Tuition Centre. All rights reserved.
+        © {new Date().getFullYear()} Kasi Academy. All rights reserved.
       </div>
     </footer>
   );

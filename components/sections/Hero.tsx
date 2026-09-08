@@ -98,11 +98,11 @@ export default function Hero() {
           </div>
 
           <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3 border-t-2 border-navy-ink pt-5 text-sm text-navy-ink">
+            <span><strong className="font-display text-base">Est. 2017</strong> established</span>
+            <span className="text-navy-ink/25">·</span>
+            <span><strong className="font-display text-base">100%</strong> pass percentage</span>
+            <span className="text-navy-ink/25">·</span>
             <span><strong className="font-display text-base">Std 1–12</strong> taught</span>
-            <span className="text-navy-ink/25">·</span>
-            <span><strong className="font-display text-base">6</strong> programs on offer</span>
-            <span className="text-navy-ink/25">·</span>
-            <span><strong className="font-display text-base">Certified</strong> phonics &amp; training</span>
           </div>
         </div>
       </div>

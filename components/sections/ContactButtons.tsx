@@ -1,23 +1,40 @@
 import { Phone, MessageCircle, MapPin, Clock3 } from "lucide-react";
+import { branches } from "@/data/branches";
 
-const rows = [
-  {
-    icon: Phone,
-    label: "Call us",
-    value: "63811 90825",
-    href: "tel:6381190825",
-  },
-  {
-    icon: MessageCircle,
-    label: "WhatsApp us",
-    value: "Message directly",
-    href: "https://wa.me/916381190825",
-  },
-  {
-    icon: MapPin,
-    label: "Address",
-    value: "Kasi Tuition Centre, Kamaraj Nagar, Choolaimedu, Chennai",
-  },
+type Row = {
+  icon: typeof Phone;
+  label: string;
+  value: string;
+  href?: string;
+};
+
+const branchRows: Row[] = branches.flatMap((b) => {
+  const rows: Row[] = [
+    {
+      icon: Phone,
+      label: `Call us — ${b.name} branch`,
+      value: b.phone,
+      href: b.phoneHref,
+    },
+    {
+      icon: MapPin,
+      label: `Address — ${b.name} branch`,
+      value: b.address,
+    },
+  ];
+  if (b.whatsapp) {
+    rows.splice(1, 0, {
+      icon: MessageCircle,
+      label: "WhatsApp us",
+      value: "Message directly",
+      href: b.whatsapp,
+    });
+  }
+  return rows;
+});
+
+const rows: Row[] = [
+  ...branchRows,
   {
     icon: Clock3,
     label: "Batch timings",

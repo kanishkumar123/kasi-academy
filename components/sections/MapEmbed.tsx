@@ -1,9 +1,13 @@
-export default function MapEmbed() {
+import type { Branch } from "@/data/branches";
+
+export default function MapEmbed({ branch }: { branch: Branch }) {
   return (
     <div className="border-2 border-navy-ink">
       <iframe
-        title="Kasi Tuition Centre location — Kamaraj Nagar, Choolaimedu, Chennai"
-        src="https://www.google.com/maps?q=Choolaimedu,Chennai&output=embed"
+        title={`Kasi Academy — ${branch.name} branch (${branch.address})`}
+        src={`https://www.google.com/maps?q=${encodeURIComponent(
+          branch.mapQuery,
+        )}&output=embed`}
         width="100%"
         height="420"
         style={{ border: 0, display: "block" }}

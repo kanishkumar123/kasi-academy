@@ -26,9 +26,9 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Kasi Tuition Centre — Choolaimedu, Chennai",
+  title: "Kasi Academy — Choolaimedu, Chennai",
   description:
-    "Kasi Tuition Centre teaches all subjects for Std 1 to 12, plus Hindi, level-based Phonics with certification, Commerce for Std 11–12, Phonics Teacher Training, and Chess — in Kamaraj Nagar, Choolaimedu, Chennai.",
+    "Kasi Academy teaches all subjects for Std 1 to 12, plus Hindi, level-based Phonics with certification, Commerce for Std 11–12, Phonics Teacher Training, and Chess — in Kamaraj Nagar, Choolaimedu, Chennai.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
