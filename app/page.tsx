@@ -3,6 +3,7 @@ import SubjectsMarquee from "@/components/sections/SubjectsMarquee";
 import ProgramLedger from "@/components/sections/ProgramLedger";
 import PhonicsLevelPath from "@/components/sections/PhonicsLevelPath";
 import WhyKasi from "@/components/sections/WhyKasi";
+import Highlights from "@/components/sections/Highlights";
 import Testimonials from "@/components/sections/Testimonials";
 import CtaBanner from "@/components/sections/CtaBanner";
 import Button from "@/components/ui/Button";
@@ -36,6 +37,7 @@ export default function Home() {
 
       <PhonicsLevelPath />
       <WhyKasi />
+      <Highlights />
       <Testimonials />
       <CtaBanner />
     </>

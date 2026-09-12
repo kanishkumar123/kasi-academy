@@ -5,9 +5,9 @@ import Accent from "@/components/ui/Accent";
 import { images } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "About — Kasi Academy",
+  title: "About — Kasi Tuition Centre",
   description:
-    "Kasi Academy is a neighbourhood classroom in Choolaimedu, Chennai, teaching Std 1–12 with small batches and certified milestones.",
+    "Kasi Tuition Centre is a neighbourhood classroom in Choolaimedu, Chennai, teaching Std 1–12 with small batches and certified milestones.",
 };
 
 const howItRuns = [
@@ -25,10 +25,10 @@ export default function AboutPage() {
           <div className="band-inner max-w-lg lg:pr-6">
             <p className="text-[13px] font-semibold text-marigold-deep">About Kasi</p>
             <h1 className="mt-3 font-display text-4xl font-medium leading-[1.05] text-navy-ink sm:text-5xl">
-              An academy built like a <Accent>second classroom</Accent>.
+              A tuition centre built like a <Accent>second classroom</Accent>.
             </h1>
             <p className="mt-6 text-[15px] leading-relaxed text-ink-muted">
-              Kasi Academy started in Kamaraj Nagar, Choolaimedu, with a
+              Kasi Tuition Centre started in Kamaraj Nagar, Choolaimedu, with a
               simple idea: children learn best when the person teaching them
               actually knows them.
             </p>

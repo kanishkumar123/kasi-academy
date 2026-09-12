@@ -4,7 +4,7 @@ export default function MapEmbed({ branch }: { branch: Branch }) {
   return (
     <div className="border-2 border-navy-ink">
       <iframe
-        title={`Kasi Academy — ${branch.name} branch (${branch.address})`}
+        title={`Kasi Tuition Centre — ${branch.name} branch (${branch.address})`}
         src={`https://www.google.com/maps?q=${encodeURIComponent(
           branch.mapQuery,
         )}&output=embed`}

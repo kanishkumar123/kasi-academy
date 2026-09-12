@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
@@ -26,12 +27,18 @@ export default function Header() {
       <div className="band">
         <div className="band-inner flex items-center justify-between py-4">
           <Link href="/" className="flex items-center gap-3">
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border-2 border-navy-ink bg-navy font-display text-lg font-semibold text-marigold">
-              K
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-navy-ink bg-cream">
+              <Image
+                src="/logo.png"
+                alt="Kasi Tuition Centre logo"
+                width={40}
+                height={40}
+                className="h-8 w-8 object-contain"
+              />
             </span>
             <span className="font-display text-lg font-medium leading-tight text-navy-ink">
               Kasi
-              <br className="hidden sm:block" /> Academy
+              <br className="hidden sm:block" /> Tuition Centre
             </span>
           </Link>
 

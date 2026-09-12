@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Phone, MapPin } from "lucide-react";
 import { branches } from "@/data/branches";
 
@@ -9,10 +10,16 @@ export default function Footer() {
         <div className="band-inner grid gap-10 py-14 sm:grid-cols-[1.3fr_1fr_1fr]">
           <div>
             <div className="flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-cream/30 font-display text-base font-semibold text-marigold">
-                K
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full border-2 border-cream/30 bg-cream">
+                <Image
+                  src="/logo.png"
+                  alt="Kasi Tuition Centre logo"
+                  width={36}
+                  height={36}
+                  className="h-7 w-7 object-contain"
+                />
               </span>
-              <span className="font-display text-lg font-medium">Kasi Academy</span>
+              <span className="font-display text-lg font-medium">Kasi Tuition Centre</span>
             </div>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-cream/65">
               All subjects, Std 1 to 12 — plus Hindi, level-based Phonics, Commerce,
@@ -57,7 +64,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-cream/15 py-5 text-center text-xs text-cream/45">
-        © {new Date().getFullYear()} Kasi Academy. All rights reserved.
+        © {new Date().getFullYear()} Kasi Tuition Centre. All rights reserved.
       </div>
     </footer>
   );

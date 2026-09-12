@@ -5,9 +5,9 @@ import Accent from "@/components/ui/Accent";
 import { branches } from "@/data/branches";
 
 export const metadata: Metadata = {
-  title: "Contact — Kasi Academy",
+  title: "Contact — Kasi Tuition Centre",
   description:
-    "Call or WhatsApp Kasi Academy at 6381190825, or visit our Choolaimedu and Arumbakkam branches in Chennai.",
+    "Call or WhatsApp Kasi Tuition Centre at 6381190825, or visit our Choolaimedu and Arumbakkam branches in Chennai.",
 };
 
 export default function ContactPage() {
