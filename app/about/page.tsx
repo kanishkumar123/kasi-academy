@@ -5,9 +5,16 @@ import Accent from "@/components/ui/Accent";
 import { images } from "@/lib/images";
 
 export const metadata: Metadata = {
-  title: "About — Kasi Tuition Centre",
+  title: "About Us",
   description:
-    "Kasi Tuition Centre is a neighbourhood classroom in Choolaimedu, Chennai, teaching Std 1–12 with small batches and certified milestones.",
+    "Kasi Tuition Centre is a neighbourhood tuition centre with branches in Choolaimedu and Arumbakkam, Chennai — teaching Std 1–12 with small batches and certified milestones since 2017.",
+  alternates: { canonical: "/about" },
+  openGraph: {
+    title: "About Kasi Tuition Centre",
+    description:
+      "A neighbourhood tuition centre in Chennai, built like a second classroom — small batches, certified milestones, 100% pass percentage since 2017.",
+    images: [{ url: "/best-outgoing-student.jpeg", alt: "Kasi Tuition Centre's Best Outgoing Student plaque" }],
+  },
 };
 
 const howItRuns = [

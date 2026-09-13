@@ -1,0 +1,17 @@
+{
+  "name": "Kasi Tuition Centre",
+  "short_name": "Kasi Tuition Centre",
+  "description": "Tuition centre in Choolaimedu & Arumbakkam, Chennai — Std 1 to 12, Hindi, Phonics, Commerce, Teacher Training and Chess.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7efdf",
+  "theme_color": "#0b2440",
+  "icons": [
+    {
+      "src": "/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

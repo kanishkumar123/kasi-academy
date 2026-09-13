@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Button from "@/components/ui/Button";
 
@@ -17,10 +17,6 @@ const navLinks = [
 export default function Header() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
-
-  useEffect(() => {
-    setMenuOpen(false);
-  }, [pathname]);
 
   return (
     <header className="sticky top-0 z-50 border-b-2 border-navy-ink bg-cream">
@@ -86,6 +82,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={() => setMenuOpen(false)}
                 className={`ledger-row flex items-center py-3.5 text-[15px] font-semibold ${
                   pathname === link.href ? "text-marigold-deep" : "text-navy-ink"
                 }`}
@@ -94,7 +91,11 @@ export default function Header() {
               </Link>
             ))}
             <div className="py-4">
-              <Button href="/contact" className="w-full justify-center">
+              <Button
+                href="/contact"
+                className="w-full justify-center"
+                onClick={() => setMenuOpen(false)}
+              >
                 Enroll now
               </Button>
             </div>

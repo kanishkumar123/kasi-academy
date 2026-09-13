@@ -5,9 +5,16 @@ import CtaBanner from "@/components/sections/CtaBanner";
 import Accent from "@/components/ui/Accent";
 
 export const metadata: Metadata = {
-  title: "Programs — Kasi Tuition Centre",
+  title: "Our Programs",
   description:
-    "All subjects for Std 1–12, Hindi, level-based Phonics with certification, Commerce for Std 11–12, Phonics Teacher Training, and Chess.",
+    "All subjects for Std 1–12, Hindi, level-based Phonics with certification, Commerce for Std 11–12, Phonics Teacher Training, and Chess — at Kasi Tuition Centre, Choolaimedu & Arumbakkam, Chennai.",
+  alternates: { canonical: "/programs" },
+  openGraph: {
+    title: "Programs at Kasi Tuition Centre",
+    description:
+      "All subjects for Std 1–12, Hindi, level-based Phonics with certification, Commerce for Std 11–12, Phonics Teacher Training, and Chess.",
+    images: [{ url: "/phonics.jpeg", alt: "Kasi Tuition Centre phonics programme poster" }],
+  },
 };
 
 export default function ProgramsPage() {

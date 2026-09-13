@@ -7,6 +7,7 @@ type ButtonProps = {
   children: ReactNode;
   variant?: "stamp" | "link";
   className?: string;
+  onClick?: () => void;
 };
 
 export default function Button({
@@ -14,6 +15,7 @@ export default function Button({
   children,
   variant = "stamp",
   className = "",
+  onClick,
 }: ButtonProps) {
   const isExternal =
     href.startsWith("http") || href.startsWith("tel:") || href.startsWith("https://wa.me");
@@ -41,6 +43,7 @@ export default function Button({
     return (
       <a
         href={href}
+        onClick={onClick}
         target={href.startsWith("http") ? "_blank" : undefined}
         rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
       >
@@ -49,5 +52,9 @@ export default function Button({
     );
   }
 
-  return <Link href={href}>{content}</Link>;
+  return (
+    <Link href={href} onClick={onClick}>
+      {content}
+    </Link>
+  );
 }

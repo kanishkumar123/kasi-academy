@@ -2,17 +2,26 @@ import type { Metadata } from "next";
 import ContactButtons from "@/components/sections/ContactButtons";
 import MapEmbed from "@/components/sections/MapEmbed";
 import Accent from "@/components/ui/Accent";
+import ContactConversion from "@/components/analytics/ContactConversion";
 import { branches } from "@/data/branches";
 
 export const metadata: Metadata = {
-  title: "Contact — Kasi Tuition Centre",
+  title: "Contact & Locations",
   description:
-    "Call or WhatsApp Kasi Tuition Centre at 6381190825, or visit our Choolaimedu and Arumbakkam branches in Chennai.",
+    "Call or WhatsApp Kasi Tuition Centre at 63811 90825, or visit our Choolaimedu and Arumbakkam branches in Chennai. Now open for registration.",
+  alternates: { canonical: "/contact" },
+  openGraph: {
+    title: "Contact Kasi Tuition Centre — Choolaimedu & Arumbakkam, Chennai",
+    description:
+      "Call, WhatsApp, or visit either of our two branches in Chennai — now open for registration.",
+    images: [{ url: "/poster.jpeg", alt: "Kasi Tuition Centre — now open for registration" }],
+  },
 };
 
 export default function ContactPage() {
   return (
     <>
+      <ContactConversion />
       <section className="band border-b-2 border-navy-ink pb-12 pt-14">
         <div className="band-inner max-w-xl">
           <p className="text-[13px] font-semibold text-marigold-deep">Get in touch</p>

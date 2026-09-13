@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Kasi Tuition Centre
 
-## Getting Started
+Marketing site for Kasi Tuition Centre — Choolaimedu & Arumbakkam, Chennai. Built with Next.js (App Router), Tailwind CSS v4, and GSAP.
 
-First, run the development server:
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Other scripts: `npm run build` (production build), `npm run start` (serve the build), `npm run lint`, `npm run typecheck`.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Before deploying to production
 
-## Learn More
+1. **Set the real domain.** Copy `.env.example` to `.env.local` (or set it in your host's dashboard) and point `NEXT_PUBLIC_SITE_URL` at the live domain, e.g. `https://www.kasituitioncentre.com`. This drives canonical links, `sitemap.xml`, `robots.txt`, and Open Graph/structured data (`lib/seo.ts`).
+2. **Verify contact details.** Branch addresses and phone numbers live in one place: `data/branches.ts`.
+3. **Submit to search engines.** Add the site to [Google Search Console](https://search.google.com/search-console) and [Bing Webmaster Tools](https://www.bing.com/webmasters), and submit `/sitemap.xml`.
+4. **Claim/optimize a Google Business Profile per branch.** For a local query like "tuition centre in Chennai", the Google Maps 3-pack usually outranks organic results — a complete, review-backed Business Profile for each branch is the single highest-leverage thing outside this codebase.
+5. Run `npm run lint && npm run typecheck && npm run build` and fix anything that fails.
 
-To learn more about Next.js, take a look at the following resources:
+## SEO & structured data
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Per-page metadata (title/description/canonical/Open Graph) lives in each `app/**/page.tsx`; shared defaults are in `app/layout.tsx`.
+- `app/sitemap.ts` and `app/robots.ts` generate `/sitemap.xml` and `/robots.txt`.
+- `components/seo/StructuredData.tsx` emits JSON-LD (`EducationalOrganization` + one `LocalBusiness` per branch) built from `data/branches.ts`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Security
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+`next.config.ts` sets security headers (CSP, HSTS, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`) for every route — see the comment above `contentSecurityPolicy` there for the one known trade-off (`'unsafe-inline'` on script/style, needed because the app doesn't wire up CSP nonces).

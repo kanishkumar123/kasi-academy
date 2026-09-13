@@ -49,10 +49,7 @@ export default function HeroCarousel() {
       return;
     }
 
-    if (prefersReducedMotion()) {
-      setWords(slides[index]);
-      return;
-    }
+    if (prefersReducedMotion()) return;
 
     const gsap = ensureGsapRegistered();
     const tl = gsap.timeline({
@@ -76,7 +73,9 @@ export default function HeroCarousel() {
     };
   }, [index]);
 
-  const slide = words;
+  // With reduced motion the GSAP swap timeline above never runs, so read the
+  // word pair straight from `index` instead of the animation-only `words` state.
+  const slide = prefersReducedMotion() ? slides[index] : words;
 
   return (
     <div
